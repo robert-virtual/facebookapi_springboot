@@ -19,10 +19,13 @@ public class Customer {
     private LocalDate birthdate;
     private String phone;
     private String email;
-    private LocalDate created_at;
+    private Date created_at;
+
+    private boolean status;
 
     public Customer() {
-        created_at =  LocalDate.now();
+        created_at =  new Date();
+        status = true;
     }
 
     public int getId() {
@@ -73,11 +76,11 @@ public class Customer {
         this.email = email;
     }
 
-    public LocalDate getCreated_at() {
+    public Date getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(LocalDate created_at) {
+    public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
 }
