@@ -1,5 +1,6 @@
-package com.example.facebookapi;
+package com.example.facebookapi.customer;
 
+import com.example.facebookapi.customer.Customer;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

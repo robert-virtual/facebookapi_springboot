@@ -1,4 +1,4 @@
-package com.example.facebookapi;
+package com.example.facebookapi.customer;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.example.facebookapi;
+package com.example.facebookapi.customer;
 
 
 import javax.persistence.Entity;
