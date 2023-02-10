@@ -25,7 +25,7 @@ public class CustomerController {
     }
     @GetMapping("/all")
     public Iterable<Customer> getAllCustomers(){
-        return customerRepository.findAll();
+        return customerRepository.activeCustomers();
     }
     @GetMapping("/one/{id}")
     public ResponseEntity<Optional<Customer>> getCustomer(@PathVariable int id){
@@ -52,8 +52,11 @@ public class CustomerController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteCustomer(@PathVariable int id){
         try {
-            customerRepository.deleteById(id);
-            return ResponseEntity.ok("User successfully delete");
+            customerRepository.findById(id).map(customer -> {
+                customer.setStatus(false);
+                return customerRepository.save(customer);
+            });
+            return ResponseEntity.ok("the customer is now inactive");
         }catch (Exception e){
             return new ResponseEntity<>("Ups, an unexpected error has occurred", HttpStatus.INTERNAL_SERVER_ERROR);
         }

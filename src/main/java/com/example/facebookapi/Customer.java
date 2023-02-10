@@ -83,4 +83,12 @@ public class Customer {
     public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 }
